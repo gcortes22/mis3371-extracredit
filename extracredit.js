@@ -115,7 +115,7 @@ function setupPasswordHelpers() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Use modal instead of direct validate/submit
+  
   var btn = $("btnValidate");
   if (btn) {
     btn.onclick = openReviewModal;
