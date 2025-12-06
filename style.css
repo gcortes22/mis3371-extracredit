@@ -1,0 +1,199 @@
+/*
+Program name: style.css
+Author: Gabriela Cortes
+Date created: 12/05/2025
+Description: fixed header/footer + iframe 
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f8ff;
+  margin: 0;
+  padding-top: 90px;   
+  padding-bottom: 70px;
+}
+
+
+#header,
+#footer {
+  background: #e6f0fa;
+  padding: 10px;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.spacer-header,
+.spacer-footer {
+  height: 0; 
+}
+
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 10px 16px 24px;
+}
+
+.info-wrap {
+  grid-template-columns: 1fr; 
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+table {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #cfd8e3;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  padding: 10px;
+  background: #f7fbff;
+  color: #003366;
+  border-bottom: 1px solid #cfd8e3;
+}
+
+td {
+  padding: 6px;
+  vertical-align: top;
+}
+
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=date],
+textarea,
+select {
+  width: 250px;
+  padding: 6px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 100%;
+}
+
+input[type=submit],
+input[type=reset],
+button {
+  background: #003366;
+  color: #fff;
+  padding: 8px 14px;
+  margin: 5px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover {
+  background: #005599;
+}
+
+
+#review {
+  background: #fff;
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+#review h3 {
+  margin-top: 8px;
+  color: #003366;
+}
+
+.muted {
+  color: #666;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.review-table td {
+  padding: 4px 6px;
+  border-bottom: 1px dashed #eee;
+}
+
+.pass {
+  color: #0a7f2e;
+  font-weight: bold;
+}
+
+.fail {
+  color: #b00020;
+  font-weight: bold;
+}
+
+
+.msg {
+  display: block;
+  min-height: 16px;
+  font-size: 12px;
+  color: #b00020;
+}
+
+.invalid {
+  border-color: #b00020 !important;
+}
+
+.valid {
+  border-color: #0a7f2e !important;
+}
+
+
+.panel {
+  background: #fff;
+  border: 1px solid #cfd8e3;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.info-frame {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+
+#welcomeText {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#notYouWrapper {
+  display: block;
+  margin-top: 4px;
+}
