@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<!--
+Program name: index.html
+Author: Gabriela Cortes
+Date created: 12/05/2025
+Description: Extra Credit 
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Registration – Extra Credit</title>
+  <link rel="stylesheet" href="extracredit.css">
+</head>
+<body>
+
+<h1>Gaby Care Medical – Extra Credit Form</h1>
+<p id="today"></p>
+
+<form id="signup">
+
+<table border="1" cellpadding="8" cellspacing="0">
+<tr><th colspan="2">Patient Registration</th></tr>
+
+<tr>
+  <td>First Name</td>
+  <td>
+    <input type="text" id="firstname">
+    <span id="err-firstname"></span>
+  </td>
+</tr>
+
+<tr>
+  <td>Last Name</td>
+  <td>
+    <input type="text" id="lastname">
+    <span id="err-lastname"></span>
+  </td>
+</tr>
+
+<tr>
+  <td>Email</td>
+  <td>
+    <input type="email" id="email">
+    <span id="err-email"></span>
+  </td>
+</tr>
+
+<tr>
+  <td>Zip Code</td>
+  <td>
+    <input type="text" id="zip" maxlength="5">
+    <span id="zipMsg"></span>
+  </td>
+</tr>
+
+<tr>
+  <td>City</td>
+  <td>
+    <input type="text" id="city" readonly>
+  </td>
+</tr>
+
+<tr>
+  <td>State</td>
+  <td>
+    <input type="text" id="state" readonly>
+  </td>
+</tr>
+
+<tr>
+  <td>Password</td>
+  <td>
+    <input type="password" id="password">
+    <input type="checkbox" id="showPass"> Show Password
+    <div id="capsWarning" style="display:none;color:red;">Caps Lock is ON</div>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" align="center">
+    <button type="button" onclick="openModal()">Review Submission</button>
+  </td>
+</tr>
+
+</table>
+</form>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">&times;</span>
+    <h2>Check your entries</h2>
+    <div id="reviewInfo"></div>
+    <br>
+    <button onclick="submitForm()">Submit</button>
+    <button onclick="closeModal()">Go Back</button>
+  </div>
+</div>
+
+<script src="extracredit.js"></script>
+</body>
+</html>
 
