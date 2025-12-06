@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Program name: thankyou.html
+Author: Gabriela Cortes
+Date created: 12/05/2025
+Description: Thank you page for HW4
+-->
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header">
+    <table width="100%">
+      <tr>
+        <td><img src="logo.png" alt="Logo" width="60" height="60"></td>
+        <td align="right">
+          Today’s date: <span id="today"></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="spacer-header"></div>
+
+  <div id="body" style="text-align:center; padding: 40px 16px;">
+    <h2>Thank you for your submission!</h2>
+    <p>Your registration form has been received successfully.</p>
+    <p><a href="index.html">Back to Form</a></p>
+  </div>
+
+  <div class="spacer-footer"></div>
+  <div id="footer">
+    GabyCare Medical |
+    <a href="mailto:info@gabycare">Contact Us</a> |
+    © 2025
+  </div>
+
+  <script>
+    // simple date (same style as main page)
+    var d = new Date();
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    document.getElementById("today").textContent =
+      days[d.getDay()] + ", " + months[d.getMonth()] + " " +
+      d.getDate() + ", " + d.getFullYear();
+  </script>
+</body>
+</html>
