@@ -1,103 +1,295 @@
 <!DOCTYPE html>
 <!--
-Program name: index.html
+Program name: index.html 
 Author: Gabriela Cortes
-Date created: 12/05/2025
-Description: Extra Credit 
+Date: 12/05/2025
+Description: HW4 form 
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Patient Registration – Extra Credit</title>
+  <!-- original HW4 styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- extra-credit-only styles (modal, helpers) -->
   <link rel="stylesheet" href="extracredit.css">
 </head>
 <body>
-
-<h1>Gaby Care Medical – Extra Credit Form</h1>
-<p id="today"></p>
-
-<form id="signup">
-
-<table border="1" cellpadding="8" cellspacing="0">
-<tr><th colspan="2">Patient Registration</th></tr>
-
-<tr>
-  <td>First Name</td>
-  <td>
-    <input type="text" id="firstname">
-    <span id="err-firstname"></span>
-  </td>
-</tr>
-
-<tr>
-  <td>Last Name</td>
-  <td>
-    <input type="text" id="lastname">
-    <span id="err-lastname"></span>
-  </td>
-</tr>
-
-<tr>
-  <td>Email</td>
-  <td>
-    <input type="email" id="email">
-    <span id="err-email"></span>
-  </td>
-</tr>
-
-<tr>
-  <td>Zip Code</td>
-  <td>
-    <input type="text" id="zip" maxlength="5">
-    <span id="zipMsg"></span>
-  </td>
-</tr>
-
-<tr>
-  <td>City</td>
-  <td>
-    <input type="text" id="city" readonly>
-  </td>
-</tr>
-
-<tr>
-  <td>State</td>
-  <td>
-    <input type="text" id="state" readonly>
-  </td>
-</tr>
-
-<tr>
-  <td>Password</td>
-  <td>
-    <input type="password" id="password">
-    <input type="checkbox" id="showPass"> Show Password
-    <div id="capsWarning" style="display:none;color:red;">Caps Lock is ON</div>
-  </td>
-</tr>
-
-<tr>
-  <td colspan="2" align="center">
-    <button type="button" onclick="openModal()">Review Submission</button>
-  </td>
-</tr>
-
-</table>
-</form>
-
-
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span onclick="closeModal()" class="close">&times;</span>
-    <h2>Check your entries</h2>
-    <div id="reviewInfo"></div>
-    <br>
-    <button onclick="submitForm()">Submit</button>
-    <button onclick="closeModal()">Go Back</button>
+  
+  <div id="header">
+    <table width="100%">
+      <tr>
+        <td>
+          <img src="logo.png" alt="Logo" width="60" height="60" style="vertical-align:middle">
+          <b style="margin-left:8px;">Gaby Care Medical – Extra Credit</b>
+        </td>
+        <td align="right">
+          <div>Today is: <span id="today"></span></div>
+          <div id="welcomeText">Hello new user</div>
+          <label id="notYouWrapper" style="display:none; font-size:12px;">
+            <input type="checkbox" id="notYouCheckbox">
+            Not <span id="cookieName"></span>? Click here to start as a new user.
+          </label>
+        </td>
+      </tr>
+    </table>
   </div>
-</div>
 
-<script src="extracredit.js"></script>
+  <div class="spacer-header"></div>
+
+ 
+  <div class="wrap info-wrap">
+    <div class="panel">
+      <h3>Helpful Info (iFrame Example)</h3>
+      <iframe
+        src="help.html"
+        class="info-frame"
+        title="Helpful information about this form">
+      </iframe>
+    </div>
+  </div>
+
+  
+  <div class="wrap main-wrap">
+
+    
+    <form id="signup" action="thankyou.html">
+      <table border="0" cellpadding="6">
+        <tr><th colspan="6">Patient Registration Form – Extra Credit</th></tr>
+
+       
+        <tr>
+          <td colspan="6">
+            <label>
+              <input type="checkbox" id="rememberMe" checked>
+              Remember Me
+            </label>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>First Name</td>
+          <td>
+            <input type="text" id="firstname" required maxlength="30"
+                   pattern="[A-Za-z\-']{1,30}">
+            <small class="msg" id="err-firstname"></small>
+          </td>
+
+          <td>Middle Initial</td>
+          <td>
+            <input type="text" id="middleinit" maxlength="1"
+                   pattern="[A-Za-z]?">
+            <small class="msg" id="err-middleinit"></small>
+          </td>
+
+          <td>Last Name</td>
+          <td>
+            <input type="text" id="lastname" required maxlength="30"
+                   pattern="[A-Za-z\-']{1,30}">
+            <small class="msg" id="err-lastname"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Date of Birth</td>
+          <td>
+            <input type="date" id="dob" required>
+            <small class="msg" id="err-dob"></small>
+          </td>
+
+          <td>Move-in / Travel Date</td>
+          <td>
+            <input type="date" id="movein">
+            <small class="msg" id="err-movein"></small>
+          </td>
+
+          <td>SSN / ID (hidden)</td>
+          <td>
+            <input type="password" id="ssn" placeholder="123-45-6789">
+            <small class="msg" id="err-ssn"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Email</td>
+          <td>
+            <input type="email" id="email" required maxlength="40">
+            <small class="msg" id="err-email"></small>
+          </td>
+
+          <td>Phone</td>
+          <td colspan="3">
+            <input type="text" id="phone" maxlength="12" placeholder="000-000-0000">
+            <small class="msg" id="err-phone"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Address 1</td>
+          <td colspan="5">
+            <input type="text" id="addr1" required maxlength="30">
+            <small class="msg" id="err-addr1"></small>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Address 2</td>
+          <td colspan="5">
+            <input type="text" id="addr2" maxlength="30">
+            <small class="msg" id="err-addr2"></small>
+          </td>
+        </tr>
+
+        <tr>
+          <td>City</td>
+          <td>
+            <input type="text" id="city" required maxlength="30">
+            <small class="msg" id="err-city"></small>
+          </td>
+
+          <td>State</td>
+          <td>
+            <select id="state" required>
+              <option value="">Loading states...</option>
+            </select>
+            <small class="msg" id="err-state"></small>
+          </td>
+
+          <td>Zip</td>
+          <td>
+            <input type="text" id="zip" required maxlength="5" placeholder="12345">
+            <small class="msg" id="err-zip"></small>
+            <small class="msg" id="zip-status"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Conditions</td>
+          <td colspan="5" id="conditionsCell">
+            Loading conditions...
+          </td>
+        </tr>
+
+        <tr>
+          <td>Housing</td>
+          <td colspan="5">
+            <label><input type="radio" name="housing" value="Own"> Own</label>
+            <label><input type="radio" name="housing" value="Rent"> Rent</label>
+            <label><input type="radio" name="housing" value="Unsure"> Unsure</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Vaccinated?</td>
+          <td colspan="5">
+            <label><input type="radio" name="vaccinated" value="Yes"> Yes</label>
+            <label><input type="radio" name="vaccinated" value="No"> No</label>
+            <label><input type="radio" name="vaccinated" value="Unsure"> Unsure</label>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Desired Salary</td>
+          <td colspan="5">
+            <input type="range" id="salary" min="20000" max="200000" step="1000" value="50000">
+            <output id="salaryOut">$50,000</output>
+            <small class="msg" id="err-salary"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>Symptoms</td>
+          <td colspan="5">
+            <textarea id="symptoms" rows="3" cols="50"
+                      placeholder="Describe your symptoms (no quotes)…"></textarea>
+            <small class="msg" id="err-symptoms"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td>User ID</td>
+          <td>
+            <input type="text" id="userid" required maxlength="20">
+            <small class="msg" id="err-userid"></small>
+          </td>
+
+          <td>Password</td>
+          <td>
+            <input type="password" id="password" required maxlength="30">
+            <small class="msg" id="err-password"></small>
+            <div class="password-tools">
+              <label><input type="checkbox" id="showPassword"> Show password</label>
+              <span id="capsWarning" class="caps-warning" style="display:none;">
+                Caps Lock is ON
+              </span>
+            </div>
+          </td>
+
+          <td>Re-enter</td>
+          <td>
+            <input type="password" id="password2" required maxlength="30">
+            <small class="msg" id="err-password2"></small>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td colspan="6" align="center">
+            <input type="reset" value="Start Over" id="btnReset">
+            
+            <button type="button" id="btnValidate">Review &amp; Submit</button>
+            
+            <button type="submit" id="btnRealSubmit" style="display:none;">Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+   
+    <div id="review">
+      <h3>Review Results</h3>
+      <div id="reviewBody">
+        <p class="muted">
+          After I click <b>Review &amp; Submit</b> it will show pass/error here for testing.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer-footer"></div>
+
+ 
+  <div id="footer">
+    <a href="mailto:info@gabycare" title="Email us">Contact Us</a>
+    &nbsp; | &nbsp;
+    © 2025 Gaby Care Medical – Extra Credit
+  </div>
+
+  
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="close">&times;</span>
+      <h2>Check your entries…</h2>
+      <div id="modalSummary"></div>
+      <p id="modalStatus" class="modal-status"></p>
+      <div class="modal-buttons">
+        <button type="button" id="modalBack">Go Back</button>
+        <button type="button" id="modalSubmit">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="app.js"></script>
+  <!-- extra-credit enhancements -->
+  <script src="extracredit.js"></script>
 </body>
 </html>
-
