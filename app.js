@@ -277,7 +277,7 @@ function validateAll() {
 
   $("btnRealSubmit").style.display = ok ? "inline-block" : "none";
 
-  // HW4: if valid (or even if not), remember data if allowed
+  
   saveNameCookie();
   saveAllToLocal();
 
@@ -301,7 +301,7 @@ function resetForm() {
 
   valSalary();
 
-  // After reset, default Remember Me back to checked
+  
   var rm = $("rememberMe");
   if (rm) rm.checked = true;
 }
@@ -331,7 +331,7 @@ async function loadStates() {
     });
   } catch (e) {
     console.error("Error loading states.txt:", e);
-    // fallback: leave whatever was in HTML
+    
   }
 }
 
@@ -357,7 +357,7 @@ async function loadConditions() {
     });
   } catch (e) {
     console.error("Error loading conditions.txt:", e);
-    // fallback: leave loading message
+    
   }
 }
 
@@ -456,15 +456,15 @@ function saveAllToLocal() {
     }
   });
 
-  // housing radio
+  
   var housing = document.querySelector("input[name='housing']:checked");
   localStorage.setItem(LS_PREFIX + "housing", housing ? housing.value : "");
 
-  // vaccinated radio
+  
   var vacc = document.querySelector("input[name='vaccinated']:checked");
   localStorage.setItem(LS_PREFIX + "vaccinated", vacc ? vacc.value : "");
 
-  // conditions checkboxes
+  
   var conds = Array.from(document.querySelectorAll("input[name='conditions']:checked"))
                    .map(cb => cb.value);
   localStorage.setItem(LS_PREFIX + "conditions", JSON.stringify(conds));
